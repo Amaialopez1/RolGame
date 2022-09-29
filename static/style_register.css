@@ -1,7 +1,7 @@
 *{
   margin: 0px;
   padding: 0px;
-  min-height: 100vh;
+
 }
 
 body {
@@ -10,5 +10,51 @@ body {
   margin: 0px;
   padding: 0px;
   min-height: 100vh;
-  background-color:red;
+
+}
+header{
+    background-color: red;
+    padding:1.8em;
+    border-bottom: 3px solid black;
+}
+.logo-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    border-bottom: 2px;
+
+}
+img {
+    width: 200px;
+    height:100%;
+}
+
+.img-container{
+
+    width:650px;
+    height: 100px;
+    background-color: white;
+}
+
+.form-header{
+    width:100%;
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+ul {
+    display:flex;
+    flex-direction:row;
+    margin-left: 4px;
+    justify-content: space-between;
+
+}
+
+ul li{
+      list-style: none;
+      display:flex;
+      flex-direction: row;
+      padding-left: 2em;
 }
