@@ -24,12 +24,6 @@
                 {% endfor %}
             </div>
             <div class = "rectangulo">
-                {{ form.email }}
-                {% for error in form.contrasena.errors %} 
-                <span>{{ error }}</span>
-                {% endfor %}
-            </div>
-            <div class = "rectangulo">
                 {{ form.submit() }}
             </div>
         </div>
