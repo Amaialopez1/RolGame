@@ -1,0 +1,14 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+  min-height: 100vh;
+  background-color:red;
+}

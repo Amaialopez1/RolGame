@@ -1,4 +1,4 @@
-from flask import Flask,redirect, render_template
+from flask import Flask, redirect, render_template
 from Forms.LoginForm import LoginForm
 from Forms.RegisterForm import RegisterForm
 
@@ -14,10 +14,10 @@ def login_template():
 
 @app.post('/login')
 def login():
-    form = LoginForm();
-    return render_template('login.html', form = form)      
+    form = LoginForm()
+    return render_template('login.html', form=form)
 
-@app.get('/registro')
+@app.get('/register')
 def register_template():
     form = RegisterForm()
     return render_template('register.html', form=form)
