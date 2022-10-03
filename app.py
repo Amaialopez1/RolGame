@@ -7,7 +7,8 @@ app = Flask(__name__, template_folder='templates')
 
 @app.get('/')
 def main_template():
-    return render_template('home/pantallaInicial.html')
+    return render_template('auth/gamePage.html')
+
 
 @app.get('/login')
 def login_template():
