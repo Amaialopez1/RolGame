@@ -28,7 +28,10 @@ def register():
     form = RegisterForm()
     return render_template('register.html', form=form)
 
+
+
 if __name__ == '__main__':
     app.run()
+
 
  

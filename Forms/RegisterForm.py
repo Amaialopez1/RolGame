@@ -23,4 +23,4 @@ class RegisterForm(Form):
         if len(password) < 8:
             raise ValidationError('Password is too short')    
 
-        return True    
+        return True

@@ -1,17 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for( 'static', filename='style.css', v=1)}}">
-    <title>Login</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %} Entrar {% endblock %}
+
+{% block stylesheets %}
+
+ <link rel="stylesheet" href="{{ url_for( 'static', filename='css/style.css', v=1)}}">
+
+{% endblock %}
+
+{% block content %}
+
+
     <div  id="login-form" action="" method="post">
         <div class = "caja-1">
             <img class = "logo" src= "/static/img/logo.png">
-            <div class = "form-field">
+            <div class = "form-fiel">
                 {{ form.name }}
                 {% for error in form.name.errors %}
                     <span>{{ error }}</span>
@@ -31,5 +34,4 @@
     </div>
 
 
-</body>
-</html>
+    {% endblock %}
