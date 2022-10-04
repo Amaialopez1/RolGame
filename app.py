@@ -10,6 +10,11 @@ def main_template():
     return render_template('auth/gamePage.html')
 
 
+@app.get('/home')
+def home_template():
+    return render_template('home/initial.html')
+
+
 @app.get('/login')
 def login_template():
     form = LoginForm()
