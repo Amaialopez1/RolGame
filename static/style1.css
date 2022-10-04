@@ -1,0 +1,106 @@
+body {
+    background-color:#C53D3D;
+    justify-content: center;
+  
+
+}
+
+.caja-1{
+    margin-left: 25%;
+}
+
+.logo2{
+    width:20%;
+    justify-content: left;
+
+}
+
+.rectangulo2{
+    border-width: 2px;
+    border-color: white;
+    border-style: solid;
+    text-align: center;
+    height: 15%;
+    width: 205px;
+    display: flex;
+    float: right;
+}
+.rectangulo3{
+    background-color: #DADE24;
+    width: 20%;
+    position: absolute;
+    top: 17px;
+}
+.nivel{
+    color: blue;
+}
+
+.main1{
+    position: absolute;
+}
+.rectangulo_propiedad{
+    background-color: blue;
+    height: 5px;
+    width: 45px;
+    margin-top: -10px;
+}
+.p2{
+    color:white;
+    text-decoration: none;
+    height: 15%;
+    margin:5%;
+    /* margin-right:5%; */
+}
+.p3{
+    color:black;
+    text-decoration: none;
+    /* height: 15%;
+    margin:5%; */
+    /* margin-right:5%; */
+}
+
+.rectangulo{
+    background-color:#dade22;
+    width: 85%;
+    margin-bottom:35px;
+    text-align: center;
+    font-size: 40px;
+}
+
+
+
+
+    
+input{
+    background-color:#dade22;
+    width: 85%;
+    height: 99px;
+    margin-bottom:35px;
+    text-align: center;
+    font-size: 40px;
+}
+input[type=submit]{
+    background-color:#1661BA;
+    width: 85%;
+    height: 99px;
+    margin-bottom:75px;
+    text-align: center;
+    font-size: 40px;
+}
+
+.logo{
+    width: 35%;
+    margin-left: 20%;
+}
+
+.img1{
+    margin-top: 20px;
+    width: 100%;
+}
+
+
+.p1{
+    display: -webkit-inline-box;
+    /* justify-content: center; */
+    text-align: center;
+}

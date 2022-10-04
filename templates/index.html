@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block stylesheets %} <link rel="stylesheet" href="/static/style1.css"> {% endblock %}"
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="caja2">
+    <div class="top">
+        <img class = "logo2" src="/static/img/logo.png">
+        <div class="rectangulo2">
+            <a class ="p2" href = {{ url_for('login') }}>Login</a>
+            <a class ="p2" href = {{ url_for('register') }}>Registro</a>
+            <a class ="p2" href = {{ url_for('register') }}>Contacto</a>
+        </div>
+
+    </div>
+    <div class ='main'>
+            <img class="img1" src="/static/img/start.jpg">
+    </div>
+
+</div>
+{% endblock %}

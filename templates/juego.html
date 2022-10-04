@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block stylesheets %} <link rel="stylesheet" href="/static/style1.css"> {% endblock %}"
+{% block title %}Juego{% endblock %}
+{% block content %}
+    <div class="caja2">
+        <div class="top">
+            <img class = "logo2" src="/static/img/logo.png">
+            <div class="rectangulo2">
+                <a class ="p2" href = {{ url_for('login') }}>Login</a>
+                <a class ="p2" href = {{ url_for('register') }}>Registro</a>
+                <a class ="p2" href = {{ url_for('register') }}>Contacto</a>
+            </div>
+    
+        </div>
+        <div class ='main1'>
+            <div class ='rectangulo3'>
+                <p class="nivel">NIVEL:18</p>
+                <div class="propiedad">
+                    <p class="propiedad_nombre">Experencia</p>
+                    <div class="rectangulo_propiedad"></div>
+                </div>
+                <div class="propiedad">
+                    <p class="propiedad_nombre">Salud</p>
+                    <div class="rectangulo_propiedad"></div>
+                </div>
+            </div>
+                <img class="img1" src="/static/img/game.jpg">
+        </div>
+
+    </div>
+{% endblock %}

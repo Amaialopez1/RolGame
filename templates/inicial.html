@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block stylesheets %} <link rel="stylesheet" href="/static/style1.css"> {% endblock %}"
+{% block title %}Inicial{% endblock %}
+{% block content %}
+    <div class = "caja-1">
+
+            <img class = "logo" src= "/static/img/logo.png">
+            <div class = "rectangulo">
+                <p class="p1"> <a class="p3" href = {{ url_for('game') }} >NUEVO JUEGO</a></p> 
+            </div>
+            <div class = "rectangulo">
+                <p class="p1"> <a  class="p3" href = {{ url_for('game') }} >CONTINUAR</a></p>
+            </div>
+            <div class = "rectangulo">
+                <p class="p1"> <a  class="p3" href = {{ url_for('game') }} >OPCIONES</a></p>
+            </div>
+    </div>
+    {% endblock %}

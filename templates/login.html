@@ -1,37 +1,27 @@
 {% extends 'base.html' %}
-
-{% block title %} Entrar {% endblock %}
-
-{% block stylesheets %}
-
- <link rel="stylesheet" href="{{ url_for( 'static', filename='css/style.css', v=1)}}">
-
-{% endblock %}
-
+{% block stylesheets %} <link rel="stylesheet" href="/static/style1.css"> {% endblock %}"
+{% block title %}Login{% endblock %}
 {% block content %}
-
-
-    <div  id="login-form" action="" method="post">
+    <form  id="login-form" action="" method="post">
         <div class = "caja-1">
             <img class = "logo" src= "/static/img/logo.png">
-            <div class = "form-fiel">
-                {{ form.name }}
-                {% for error in form.name.errors %}
+            {{form.hidden_tag }}
+            <div class = "form-field">
+                {{ form.nombre }}
+                {% for error in form.nombre.errors %}
                     <span>{{ error }}</span>
-                {% end-for %}
+                {% endfor %}
             </div>
-            <div class = "rectangulo">
-                {{ form.password }}
-                {% for error in form.password.errors %}
+            <div class = "form-field">
+                {{ form.contrasena }}
+                {% for error in form.contrasena.errors %} 
                 <span>{{ error }}</span>
-                {% end-for %}
+                {% endfor %}
             </div>
-            <div class = "rectangulo">
+            <div>
                 {{ form.submit() }}
             </div>
         </div>
 
-    </div>
-
-
+    </form>
     {% endblock %}

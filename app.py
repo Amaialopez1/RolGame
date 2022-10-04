@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template
+from flask import Flask, redirect, render_template,request, url_for
 from Forms.LoginForm import LoginForm
 from Forms.RegisterForm import RegisterForm
 
@@ -14,8 +14,7 @@ def login_template():
 
 @app.post('/login')
 def login():
-    form = LoginForm()
-    return render_template('login.html', form=form)
+    return render_template('inicial.html')
 
 @app.get('/register')
 def register_template():
@@ -26,8 +25,21 @@ def register_template():
 @app.post('/register')
 def register():
     form = RegisterForm()
-    return render_template('register.html', form=form)
+    if form.validate_form(request): 
+        return redirect(url_for('home')) 
 
+
+@app.get('/game')
+def game():
+    return render_template('juego.html')
+
+@app.get('/initial')
+def home():
+    return render_template('inicial.html')    
+
+@app.get('/')
+def initial():
+    return render_template('index.html')
 
 
 if __name__ == '__main__':
