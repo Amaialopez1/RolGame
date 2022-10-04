@@ -1,35 +1,60 @@
-body{
+body {
     background-color:#C53D3D;
+    justify-content: center;
+    display: content;
+
+}
+div#logo{
     justify-content:center;
-    display:flex;
 }
 
-
-#cont1{
-    justify-content:center;
+img {
+    width: 500px;
+    height:150%;
+    margin-left:400px;
 }
 
 #logo{
-    width: 250px;
-    height: 50%;
+    height:10%;
+    width:30%;
 }
-div.box1{
-    vertical-align: column-top;
-    justify-content:center;
-    width:250px;
-    height:200%;
-}
+
 
 .box1{
-    background-color:#dade22;
-    width:755px;
-    height:99px;
-    margin-bottom:35px;
-    text-align:center;
-    font-size:40px;
-    justify-content:down;
-
+    width: 755px;
+    height: 99px ;
+    text-align: center;
+    font-size: 40px;
+    padding:20px 280px;
 }
+input[type=submit]{
+    background-color:#1661BA;
+    width: 755px;
+    height: 99px ;
+    margin-bottom:75px;
+    text-align: center;
+    font-size: 40px;
+}
+
+
+
+
 .caja1{
-    background:#C53D3D;
+    padding:10px;
+    height:50px;
+    background-color:#dade22;
+    margin:40px;
+}
+.caja2{
+    padding:10px;
+    height:50px;
+    background-color:#dade22;
+    margin:40px;
+}
+
+.caja3{
+    padding:10px;
+    height:50px;
+    background-color:#dade22;
+    margin:40px;
 }
