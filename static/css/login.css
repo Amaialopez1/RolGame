@@ -14,10 +14,6 @@ img {
     margin-left:400px;
 }
 
-#logo{
-    height:10%;
-    width:30%;
-}
 
 
 .box1{
@@ -25,18 +21,8 @@ img {
     height: 99px ;
     text-align: center;
     font-size: 40px;
-    padding:20px 280px;
+    padding: 0 280px;
 }
-input[type=submit]{
-    background-color:#1661BA;
-    width: 755px;
-    height: 99px ;
-    margin-bottom:75px;
-    text-align: center;
-    font-size: 40px;
-}
-
-
 
 
 .caja1{
