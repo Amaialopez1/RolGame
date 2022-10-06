@@ -1,0 +1,42 @@
+body{
+    margin: 20px;
+    padding: 0px;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#game-background{
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    width:1276px;
+    height: 759px;
+    background-size: cover;
+    background: url("/RolGame/static/img/grass_tile.png");
+
+}
+.content{
+    width: 50px;
+    height: 50px;
+    border: 3px solid black;
+    display:flex;
+    justify-content: flex-start;
+
+}
+.sprite-bush-1{
+    position: absolute;
+    width:312px;
+    height:332px;
+    left:900px;
+    top: 300px;
+    background: url("/RolGame/static/img/bush_background.png");
+}
+.sprite-bush-2{
+    position: absolute;
+    width:312px;
+    height:332px;
+    right:900px;
+    top: 200px;
+    background: url("/RolGame/static/img/bush_background.png");
+}
