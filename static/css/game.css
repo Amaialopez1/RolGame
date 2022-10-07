@@ -1,31 +1,18 @@
 body{
-    margin: 20px;
-    padding: 0px;
-    display:flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-#game-background{
-    display:flex;
-    flex-direction:row;
-    justify-content: center;
-    width:1276px;
-    height: 759px;
-    background-size: cover;
     background: url("/RolGame/static/img/grass_tile.png");
-
 }
+
 .player{
     width: 80px;
     height: 100px;
     background: url("/RolGame/static/img/mov_front.png");
     background-size: 240px, 100px;
     background-position: 0px 0;
-    animation: walking .6s linear infinite;
-
 }
 
+.player .active{
+    animation: walking .6s linear infinite;
+}
 
 @keyframes walking{
     0%, 32%{
