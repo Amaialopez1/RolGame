@@ -10,7 +10,7 @@ body{
     background-position: 0px 0;
 }
 
-.player .active{
+.player.active{
     animation: walking .6s linear infinite;
 }
 
