@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/style1.css">
+    <title>Eligir</title>
+</head>
+<body>
+    <div class="display-container">
+
+
+        <h1>ELIGIR TIPO DE POKEMON</h1>
+            <div class="scene">
+                <div class="tipo_de_pokemon">
+                     <img src="/static/img/bulbasaur_front.png">
+                     <p class="nombre_de_tipo_de_pokemon">BULBASAUR</p>
+               </div>
+              <div class="tipo_de_pokemon">
+                <img src="/static/img/charmander_front.png">
+                    <p class="nombre_de_tipo_de_pokemon">CHARMANDER</p>
+              </div>
+             <div class="tipo_de_pokemon">
+                <img src="/static/img/squirtle_front.png">
+                <p class="nombre_de_tipo_de_pokemon">SQUIRTLE</p>
+             </div>
+            </div>
+        <div class = buttons>
+        <button class="left" onclick="plusDivs(-1)">&#10094;</button>
+        <button class="right" onclick="plusDivs(1)">&#10095;</button>
+        </div>
+        <button class="eligir">
+        <a  class="p3"  href = {{ url_for('game') }} > ELIGIR</a>
+        </button>
+    </div>
+
+</body>
+<script>
+     var cards = document.querySelectorAll(".tipo_de_pokemon");
+     console.log(cards[0])
+     console.log(cards[2])
+     var slideIndex = 0;
+      showDivs(slideIndex);
+      
+      function plusDivs(n) {
+        showDivs(slideIndex += n);
+      }
+      function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("scene");
+        if (n == 0) { 
+          document.querySelector(".left").style.visibility="hidden";
+          cards[0].style.display = "grid";
+          cards[1].style.display =  "none";
+          cards[2].style.display =  "none";
+         }
+        else if (n == 2) { 
+            document.querySelector(".right").style.visibility="hidden";
+            cards[1].style.display = "grid";
+            cards[0].style.display =  "none";
+            cards[2].style.display =  "none";
+        }
+        else{
+          document.querySelector(".left").style.visibility='visible '
+          document.querySelector(".right").style.visibility="visible";
+          cards[2].style.display = "grid";
+          cards[1].style.display =  "none";
+          cards[0].style.display =  "none";
+        }
+        // for (i = 0; i < 3; i++) {
+        //   x[i].style.display = "none";
+        // }
+        // x[slideIndex].style.display = "block";
+      }
+</script>

@@ -22,21 +22,18 @@ def load_user(id):
 
 @app.get('/login')
 def login_template():
-    if current_user.is_authenticated:
-        print('true - login');
-        return redirect(url_for('home'))
-    else:
-        form = LoginForm()
-        print('false - login');
-        return render_template('login.html', form=form)
+    form = LoginForm()
+    #     print('false - login');
+    return render_template('login.html', form=form)
+    # if current_user.is_authenticated:
+    #     print('true - login');
+       # return redirect(url_for('lo'))
+    # else:
+    #     
 
 
 @app.post('/login')
 def login():
-    form = LoginForm()
-    # if form.validate_form(request):
-
-
     return render_template('inicial.html')
 
 @app.get('/register')
@@ -67,35 +64,44 @@ def register():
         else:
             print('false - c'); 
         # print(current_user.nombre())
-        # my_cursor.execute("select * from jugador")
-        # for jg in my_cursor:
-        #     print(jg)
+        my_cursor.execute("select * from jugador")
+        for jg in my_cursor:
+            print(jg)
         return redirect(url_for('home')) 
 
 
 @app.get('/game')
 def game():
-    if current_user.is_authenticated:
-        print('true - game');
+    # if current_user.is_authenticated:
+    #     print('true - game');
         return render_template('juego.html')
-    else:
-        print('false - game');    
-        return render_template('index.html')    
+    # else:
+    #     print('false - game');    
+    #     return render_template('index.html')    
 
     
 
 @app.get('/initial')
 def home():
-    if current_user.is_authenticated:
-        print('true - home');
-        return render_template('inicial.html') 
-    else:
-        print('false - home');    
-        return render_template('index.html')        
+    # if current_user.is_authenticated:
+    #     print('true - home');
+    return render_template('inicial.html') 
+    # else:
+    #     print('false - home');    
+    #     return render_template('index.html')        
 
 @app.get('/')
 def initial():
     return render_template('index.html')
+
+@app.get('/opciones')
+def opciones():
+    return render_template('opcion.html')
+
+
+@app.get('/eligir')
+def eligir():
+    return render_template('eligir.html')
 
 
 if __name__ == '__main__':
