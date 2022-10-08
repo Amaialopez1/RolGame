@@ -1,4 +1,7 @@
-const player = document.querySelector('.player')    //Selecciono la clase player del documento
+const player = document.querySelector('.player')
+const bush = document.querySelector('.sprite-bush-1')    //Selecciono la clase player del documento
+
+
 const player_pos = {
     x: parseInt(window.innerWidth /2),              //Posiciono el .player en mitad de alto y mitad de ancho del DOM
     y: parseInt(window.innerHeight /2)
@@ -42,3 +45,5 @@ window.addEventListener('keyup', function(){
     player_vel.y = 0
     player.classList.remove('active')
 })
+
+function

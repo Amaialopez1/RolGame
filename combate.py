@@ -31,7 +31,7 @@ class Pokemon:
         print("Tipo/", self.types)
         print("Ataque/", self.attack)
         print("Defensa/", self.defense)
-        print("Level/", 3*(1+np.mean([self.attack, self.defense])))
+        print("Level/", 3 * (1 + np.mean([self.attack, self.defense])))
         print("\nVS")
         print(f"\n{Pokemon2.name}")
         print("Tipo/", Pokemon2.types)

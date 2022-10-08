@@ -1,0 +1,82 @@
+
+@font-face{
+    font-family:Arcade;
+    src:url("/RolGame/static/font/ARCADECLASSIC.ttf");
+}
+.panel{
+    width: 700px;
+    height: 700px;
+ /*   border: 5px solid black; */
+}
+.pokemon1{
+    width: 200px;
+    height: 200px;
+  /*   border: solid 3px red; */
+    position: relative;
+    top: 13em;
+    left: 1em;
+    background: url("/RolGame/static/img/charmander_back.png");
+    background-size:cover;
+}
+.pokemon2{
+    width: 150px;
+    height: 150px;
+   /*  border: solid 3px red; */
+    position: relative;
+    left: 30em;
+    bottom: 10em;
+    align-self:start;
+    background: url("/RolGame/static/img/bulbasaur_front.png");
+    background-size:cover;
+}
+.show_attack{
+    height:200px;
+    width: 600px;
+   /* border: solid 3px blue; */
+    display:block;
+    justify-content: center;
+    position:relative;
+    top: 6em;
+    margin-left: 13px;
+}
+ol{
+    display: block;
+    list-style-type: decimal;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-inline-start: 100px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+    font-size: 70px;
+}
+ol li{
+    display:inline-block;
+    flex-wrap:wrap;
+}
+button{
+    width: 200px;
+    flex-wrap:wrap;
+    height: 100px;
+    font-family: Arcade;
+    font-size: 20px;
+    align-self: center;
+}
+.hp_1{
+    margin:0px;
+    padding:0px;
+    position:relative;
+    width: 50px;
+    font-family:Arcade;
+    font-size: 25px;
+    left: 4em;
+    top: 2.5em;
+}.hp_2{
+    margin:0px;
+    padding:0px;
+    position:relative;
+    width: 50px;
+    font-family:Arcade;
+    font-size: 25px;
+    bottom: 8em;
+    left: 21.4em;
+}

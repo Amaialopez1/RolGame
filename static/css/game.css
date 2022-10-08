@@ -8,7 +8,7 @@ body{
     background: url("/RolGame/static/img/mov_front.png");
     background-size: 240px, 100px;
     background-position: 0px 0;
-    z-index: 10;
+   /* z-index: 10; */
 }
 
 .player.active{
@@ -35,8 +35,8 @@ body{
     left:900px;
     top: 300px;
     background: url("/RolGame/static/img/bush_background.png");
-
 }
+
 .sprite-bush-2{
     position: absolute;
     width:312px;
@@ -44,5 +44,4 @@ body{
     right:900px;
     top: 200px;
     background: url("/RolGame/static/img/bush_background.png");
-
 }
