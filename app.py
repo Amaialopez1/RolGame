@@ -2,7 +2,7 @@ from flask import Flask, redirect, render_template,request, url_for
 from Forms.LoginForm import LoginForm
 from Forms.RegisterForm import RegisterForm
 from flask_login import login_user, LoginManager, current_user, login_required
-from database import my_cursor
+from database import my_cursor,mybd
 from user import User, users
 
 
@@ -34,7 +34,22 @@ def login_template():
 
 @app.post('/login')
 def login():
-    return render_template('inicial.html')
+    form = LoginForm();
+    it=0;
+    if form.validate_form(request):
+       sql1 = "select id from jugador where nombre_de_usario = %s and contrasena = %s ";
+       record1=request.form.get('nombre');
+       record2=request.form.get('contrasena');
+       my_cursor.execute(sql1,(record1 ,record2));
+       result = my_cursor.fetchall()
+       for row in result:
+            print(row)
+    #         it+=1;
+    # if it>0 :
+    #      print('login')
+    #      return render_template('inicial.html')
+    # else:
+    #     print('no login')     
 
 @app.get('/register')
 def register_template():
@@ -56,6 +71,7 @@ def register():
         sql1 = "insert into jugador(nombre_de_usario,contrasena,email) values (%s, %s, %s)";
         record1 = ( request.form.get('nombre'), request.form.get('contrasena'),  request.form.get('email'));
         my_cursor.execute(sql1,record1 );
+        mybd.commit();
         users.append(user1);
         
         login_user(user1, remember=True)
