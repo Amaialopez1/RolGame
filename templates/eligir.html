@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="/static/style1.css">
-    <title>Eligir</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block stylesheets %} <link rel="stylesheet" href="/static/style1.css">{% endblock %}
+
+{% block title %}Eligir{% endblock %}   
+{% block content %}
     <div class="display-container">
 
 
@@ -32,43 +29,5 @@
         <a  class="p3"  href = {{ url_for('game') }} > ELIGIR</a>
         </button>
     </div>
-
-</body>
-<script>
-     var cards = document.querySelectorAll(".tipo_de_pokemon");
-     console.log(cards[0])
-     console.log(cards[2])
-     var slideIndex = 0;
-      showDivs(slideIndex);
-      
-      function plusDivs(n) {
-        showDivs(slideIndex += n);
-      }
-      function showDivs(n) {
-        var i;
-        var x = document.getElementsByClassName("scene");
-        if (n == 0) { 
-          document.querySelector(".left").style.visibility="hidden";
-          cards[0].style.display = "grid";
-          cards[1].style.display =  "none";
-          cards[2].style.display =  "none";
-         }
-        else if (n == 2) { 
-            document.querySelector(".right").style.visibility="hidden";
-            cards[1].style.display = "grid";
-            cards[0].style.display =  "none";
-            cards[2].style.display =  "none";
-        }
-        else{
-          document.querySelector(".left").style.visibility='visible '
-          document.querySelector(".right").style.visibility="visible";
-          cards[2].style.display = "grid";
-          cards[1].style.display =  "none";
-          cards[0].style.display =  "none";
-        }
-        // for (i = 0; i < 3; i++) {
-        //   x[i].style.display = "none";
-        // }
-        // x[slideIndex].style.display = "block";
-      }
-</script>
+{% endblock %}
+{% block JavaScript %} <script src="/static/js/eligir.js"> </script>{% endblock %}

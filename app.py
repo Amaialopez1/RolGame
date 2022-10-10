@@ -1,10 +1,12 @@
+from re import L
 from flask import Flask, redirect, render_template,request, url_for, session
 from itsdangerous import NoneAlgorithm
+from numpy import void
 from Forms.LoginForm import LoginForm
 from Forms.RegisterForm import RegisterForm
 from database import my_cursor,mybd
 from flask_session import Session
-
+from Forms.Cambiar_nombre import  camb
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'adfadfadag';
@@ -99,8 +101,23 @@ def initial():
 @app.get('/opciones')
 def opciones():
     if not session.get("nombre"):
-        return render_template('index.html')   
-    return render_template('opcion.html')
+        return render_template('index.html')  
+
+    form = camb();     
+    return render_template('opcion.html', form=form)
+
+@app.post('/opciones')
+def opc():
+    if request.form.get('nombre').isalpha():
+        form = camb();
+        if  form.validate_form(request):
+            my_cursor.execute("update jugador set nombre_de_usario = %s where nombre_de_usario = %s ", (request.form.get('nombre'),session.get("nombre")));
+            mybd.commit();
+            my_cursor.execute("select * from jugador")
+            for jg in my_cursor:
+               print(jg)
+    return render_template('inicial.html')         
+
 
 
 @app.get('/eligir')
