@@ -2,6 +2,11 @@
 {% block stylesheets %} <link rel="stylesheet" href="/static/style1.css"> {% endblock %}"
 {% block title %}Inicial{% endblock %}
 {% block content %}
+
+    <div class ="logout">
+        <a class ="p2" href = {{ url_for('logout') }}>LOGOUT</a>
+    </div>
+
     <div class = "caja-1">
 
             <img class = "logo" src= "/static/img/logo.png">

@@ -65,9 +65,7 @@ body {
     /* margin-right:5%; */
 }
 
-.p5{
-    
-}
+
 
 .nombre_de_tipo_de_pokemon{
     color: #1661BA
@@ -178,7 +176,17 @@ input[type=submit]{
     float: right;
 }
 
+.logout{
+    border-width: 2px;
+    border-color: white;
+    border-style: solid;
+    text-align: center;
+    height: 35%;
+    width: 80px;
+    display: flex;
+    float: right;
 
+}
 .tipo_de_pokemon{
     width: 190px;
     background-color: #dade22;

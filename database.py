@@ -79,27 +79,8 @@ my_cursor.execute('use  pokemons');
 # for row in result:
 #     print(row)    
 
-my_cursor.execute("select * from jugador")
-result = my_cursor.fetchall()
-for row in result:
-    print(row)    
+# my_cursor.execute("select * from jugador")
+# result = my_cursor.fetchall()
+# for row in result:
+#     print(row)    
 
-sql1 = "select id from jugador where nombre_de_usario = %s and contrasena = %s ";
-record1='lol';
-record2='123123123';
-my_cursor.execute(sql1,(record1 ,record2));
-result = my_cursor.fetchall()
-for row in result:
-    print(row)           
-
-print('0');
-record1='n';
-record2='contrasena';    
-my_cursor.execute(sql1,(record1 ,record2));
-result = my_cursor.fetchall()
-it=0;
-for row in result:
-    print(row)   
-    it+=1;
-if it>0 :
-    print('login')    
