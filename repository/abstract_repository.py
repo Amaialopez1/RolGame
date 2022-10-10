@@ -18,3 +18,5 @@ class AbstractRepository(abc.ABC):
 
     def list(self):
         raise NotImplementedError
+
+
