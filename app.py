@@ -113,6 +113,7 @@ def opc():
         if  form.validate_form(request):
             my_cursor.execute("update jugador set nombre_de_usario = %s where nombre_de_usario = %s ", (request.form.get('nombre'),session.get("nombre")));
             mybd.commit();
+            session["nombre"] = request.form.get('nombre');
             my_cursor.execute("select * from jugador")
             for jg in my_cursor:
                print(jg)
