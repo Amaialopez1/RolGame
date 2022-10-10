@@ -2,26 +2,17 @@ from flask import Flask, redirect, render_template,request, url_for, session
 from itsdangerous import NoneAlgorithm
 from Forms.LoginForm import LoginForm
 from Forms.RegisterForm import RegisterForm
-from flask_login import login_user, LoginManager, current_user, login_required
 from database import my_cursor,mybd
-from user import User, users
 from flask_session import Session
 
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'adfadfadag';
-login_manager = LoginManager(app)
-login_manager.login_view= 'login_template'
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
-@login_manager.user_loader
-def load_user(id):
-    for user in users:
-        if user.id == id:
-            return user
-    return None    
+
 
 
 @app.get('/login')
@@ -29,13 +20,7 @@ def login_template():
     if  session.get("nombre"):
         return render_template('inicial.html')   
     form = LoginForm()
-    #     print('false - login');
     return render_template('login.html', form=form)
-    # if current_user.is_authenticated:
-    #     print('true - login');
-       # return redirect(url_for('lo'))
-    # else:
-    #     
 
 
 @app.post('/login')
@@ -67,12 +52,7 @@ def register_template():
         return render_template('inicial.html')  
     form = RegisterForm()
     return render_template('register.html', form=form)     
-    # if current_user.is_authenticated:
-    #     print('true - register');
-    #     return redirect(url_for('home'))
-    # else:
-    #     print('false - register');
-    #     
+
 
 
 @app.post('/register')
@@ -97,10 +77,6 @@ def game():
         return render_template('index.html') 
     print('true - game');
     return render_template('juego.html')    
-    # if current_user.is_authenticated:
-    #     
-    # else:
-    #        
 
     
 
