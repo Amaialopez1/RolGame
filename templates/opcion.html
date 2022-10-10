@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/style1.css">
+    <title>Entrar</title>
+</head>
+<body>
+    <div class = "caja-1">
+        <img class = "logo" src= "/static/img/logo.png">
+        <div class = "rectangulo4">OPCIONES</div>   
+</div> 
+<div class='caja2'>
+    <button class = "button1">CAMBIAR NOMBRE</button>
+    <input class = "cambiar_nombre"></div>  
+</div>
+<div class='caja2'>
+    <img class ="sound_icon" src="/static/img/sound.png">
+    <audio autoplay="" controls="" id="audio">
+        <source src="/static/audio/audio.mp3" type="audio/mpeg">
+        </source>
+    </audio> 
+    <input id="range" min="0" max="100" value="0" type="range">
+
+</div>
+
+</body>
+<script>
+    var audio = document.getElementById("audio");
+    var rande = document.getElementById("range");
+
+    range.onchange = function(){
+        audio.volume = this.value/100;
+    }
+
+</script>

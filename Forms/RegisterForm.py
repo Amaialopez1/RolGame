@@ -10,8 +10,8 @@ class RegisterForm(Form):
     submit = SubmitField('Register')
 
     def validate_form(self, request):
-        name: str = request.form.get('name')
-        password =  request.form.get('password')
+        name: str = request.form.get('nombre')
+        password =  request.form.get('contrasena')
 
         if len(name)<3:
             raise ValidationError('Name is too short')
