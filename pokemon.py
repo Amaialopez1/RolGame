@@ -62,8 +62,8 @@ class Trainer:
     experience = Column(Integer)
     email = Column(String(255))
     password = Column(String(255))
-    position_x = Column(int)
-    position_y = Column(int)
+    position_x = Column(Integer)
+    position_y = Column(Integer)
     pokemons: []
     user_id = Column(String(255), primary_key=True)
 
