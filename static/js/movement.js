@@ -1,5 +1,5 @@
    //Selecciono la clase player del documento
-const player = document.getElementById("player")
+const player = document.querySelector(".player")
 const bush1 =document.getElementById("buch1")
 const bush2 =document.getElementById("buch2")
 const bush3 =document.getElementById("buch3")
@@ -30,19 +30,19 @@ socket.connect('http://127.0.0.1:5000/')
 window.addEventListener('keydown', function(e){     //Añade el evento, 'keydown' indica el evento de cualquier tecla, la funcion(e) 'e' es el evento
     if(e.key == "ArrowUp"){                         //Si la key del evento es igual a tecla arriba
         player_vel.y = 3                            //Cambiara la velocidad hacia arriba en 3, (negativo es hacia abajo)
-        player.style.backgroundImage = 'url("/RolGame/static/img/mov_back.png")'
+        player.style.backgroundImage = 'url("/static/img/mov_back.png")'
     }
     if(e.key == "ArrowDown"){
         player_vel.y = -3
-        player.style.backgroundImage = 'url("/RolGame/static/img/mov_front.png")'
+        player.style.backgroundImage = 'url("/static/img/mov_front.png")'
     }
     if(e.key == "ArrowLeft"){
         player_vel.x = -3
-        player.style.backgroundImage = 'url("/RolGame/static/img/mov_left.png")'
+        player.style.backgroundImage = 'url("/static/img/mov_left.png")'
     }
     if(e.key == "ArrowRight"){
         player_vel.x = 3
-        player.style.backgroundImage = 'url("/RolGame/static/img/mov_right.png")'
+        player.style.backgroundImage = 'url("/static/img/mov_right.png")'
     }
     
     // const socket = io();

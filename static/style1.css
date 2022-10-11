@@ -8,16 +8,16 @@ body {
   font-family: ModernWarfare;
   src: url("/RolGame/static/fonts/ModernWarfare.ttf");
 }
-#player{
-    width: 80px;
-    height: 100px;
-    background: url("/RolGame/static/img/mov_front.png");
-    background-size: 240px, 100px;
+.player{
+    width: 48px;
+    height: 48px;
+    background: url("/static/img/mov_front.png");
+    background-size: cover;
     background-position: 0px 0;
-    z-index: 999;
+
 }
 
-#player.active{
+.player.active{
     animation: walking .6s linear infinite;
 }
 
