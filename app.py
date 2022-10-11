@@ -4,9 +4,9 @@ from itsdangerous import NoneAlgorithm
 from numpy import void
 from Forms.LoginForm import LoginForm
 from Forms.RegisterForm import RegisterForm
-from database import my_cursor,mybd
+from database import my_cursor, mybd
 from flask_session import Session
-from Forms.Cambiar_nombre import  camb
+from Forms.Cambiar_nombre import camb
 import sys
 
 if sys.version_info.major == 3 and sys.version_info.minor >= 10:
