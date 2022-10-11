@@ -23,14 +23,9 @@ Session(app)
 
 socketio = SocketIO(app)
 
-
-
 @socketio.on('enemigo')
 def enemigo():
     print("aperece enemigo")
-
-
-    
 
 @app.get('/login')
 def login_template():
@@ -38,7 +33,6 @@ def login_template():
         return render_template('inicial.html')   
     form = LoginForm()
     return render_template('login.html', form=form)
-
 
 @app.post('/login')
 def login():
@@ -70,8 +64,6 @@ def register_template():
     form = RegisterForm()
     return render_template('register.html', form=form)     
 
-
-
 @app.post('/register')
 def register():
     form = RegisterForm()
@@ -86,7 +78,6 @@ def register():
             print(jg)
         return redirect(url_for('home')) 
 
-
 @app.get('/game')
 def game():
     if not session.get("nombre"):
@@ -94,8 +85,6 @@ def game():
         return render_template('index.html') 
     print('true - game');
     return render_template('juego.html')    
-
-    
 
 @app.get('/initial')
 def home():
@@ -134,21 +123,21 @@ def opc():
                print(jg)
     return render_template('inicial.html')         
 
-
-
 @app.get('/eligir')
 def eligir():
     if not session.get("nombre"):
         return render_template('index.html')   
     return render_template('eligir.html')
 
-
+@socketio.on('enemigo')
+def enemigo():
+    print('enemigo')
 
 @socketio.on('connect')
 def connect():
-    session['sid'] = request.sid 
+    session['sid'] = request.sid
 
-    
 if __name__ == '__main__':
 
-    socketio.run(app)
+    socketio.run(app, allow_unsafe_werkzeug=True)
+
