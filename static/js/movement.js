@@ -23,6 +23,9 @@ function walk(){
     requestAnimationFrame(walk)                     //Hace la funcion de la animación siempre se pasa de parametro la funcion
 }
 walk()
+const socket = io();
+socket.connect('http://127.0.0.1:5000/')
+
 
 window.addEventListener('keydown', function(e){     //Añade el evento, 'keydown' indica el evento de cualquier tecla, la funcion(e) 'e' es el evento
     if(e.key == "ArrowUp"){                         //Si la key del evento es igual a tecla arriba
@@ -41,9 +44,10 @@ window.addEventListener('keydown', function(e){     //Añade el evento, 'keydown
         player_vel.x = 3
         player.style.backgroundImage = 'url("/RolGame/static/img/mov_right.png")'
     }
+    
     // const socket = io();
     if (in_bush(player)){
-        // socket.emit('enemigo', {})
+        socket.emit('enemigo')
         console.log("inside")}
     else{console.log("outside")}
     player.classList.add('active')                  //Activa el keyframe de la clase player para la animación
@@ -66,20 +70,11 @@ function getCoords(elem) {
     };
 }
 
-// console.log("bush1: ",bush1.offsetTop, bush1.offsetTop+bush1.offsetHeight ,bush1.offsetLeft,  bush1.offsetLeft+bush1.offsetWidth);
-// console.log("bush2: ", bush2.offsetTop, bush2.offsetTop+bush2.offsetHeight ,bush2.offsetLeft,  bush2.offsetLeft+bush2.offsetWidth);
-// console.log("bush3: ", bush3.offsetTop, bush3.offsetTop+bush3.offsetHeight ,bush3.offsetLeft,  bush3.offsetLeft+bush3.offsetWidth);
-// console.log("bush4: ", bush4.offsetTop, bush4.offsetTop+bush4.offsetHeight ,bush4.offsetLeft,  bush4.offsetLeft+bush4.offsetWidth);
-// console.log("bush5: ", bush5.getBoundingClientRect().top, bush5.getBoundingClientRect().bottom ,bush5.getBoundingClientRect().left,  bush5.getBoundingClientRect().right);
-// // console.log("bush5: ", bush5.offsetTop, bush5.getBoundingClientRect().bottom ,bush5.offsetLeft,  bush5.getBoundingClientRect().right);
-// console.log("plc: ", player.getBoundingClientRect().top, player.getBoundingClientRect().left);
 
 
 
 function in_bush(player){
-    //console.log("plc: ", player_pos, player_pos);
-    // // console.log("plc: ", player.getBoundingClientRect().top, player.getBoundingClientRect().left);
-    // console.log("plc: ",getComputedStyle(player).top , getComputedStyle(player).bottom ,getComputedStyle(player).left, getComputedStyle(player).right )
+
     console.log("bush1: ",getCoords(bush1).top, getCoords(bush1).left, getCoords(bush1).right, getCoords(bush1).bottom);
     console.log("bush2: ",getCoords(bush2).top, getCoords(bush2).left, getCoords(bush2).right, getCoords(bush2).bottom);
     console.log("bush3: ",getCoords(bush3).top, getCoords(bush3).left, getCoords(bush3).right, getCoords(bush3).bottom);
@@ -89,28 +84,30 @@ function in_bush(player){
 
 
     console.log(getCoords(player).top, getCoords(player).left)
-    if(player.offsetTop > bush1.offsetTop && player.offsetTop+player.offsetHeight < bush1.offsetTop+bush1.offsetHeight  && player.offsetLeft < bush1.offsetLeft  &&  player.offsetLeft+player.offsetWidth <  bush1.offsetLeft+bush1.offsetWidth){
+    if( getCoords(player).top >=  getCoords(bush1).top &&  getCoords(player).left >=  getCoords(bush1).left  &&  getCoords(player).right <=  getCoords(bush1).right  &&  getCoords(player).bottom <=  getCoords(bush1).bottom){
         console.log("1")
         return true;        
     }
-    if(player.offsetTop > bush2.offsetTop && player.offsetTop+player.offsetHeight < bush2.offsetTop+bush2.offsetHeight  && player.offsetLeft < bush2.offsetLeft  &&  player.offsetLeft+player.offsetWidth <  bush2.offsetLeft+bush2.offsetWidth){
+    if( getCoords(player).top >=  getCoords(bush2).top &&  getCoords(player).left >=  getCoords(bush2).left  &&  getCoords(player).right <=  getCoords(bush2).right  &&  getCoords(player).bottom <=  getCoords(bush2).bottom){
         console.log("2")
         return true;        
     }
-    if(player.offsetTop > bush3.offsetTop && player.offsetTop+player.offsetHeight < bush3.offsetTop+bush3.offsetHeight  && player.offsetLeft < bush3.offsetLeft  &&  player.offsetLeft+player.offsetWidth <  bush3.offsetLeft+bush3.offsetWidth){
+    if( getCoords(player).top >=  getCoords(bush3).top &&  getCoords(player).left >=  getCoords(bush3).left  &&  getCoords(player).right <=  getCoords(bush3).right  &&  getCoords(player).bottom <=  getCoords(bush3).bottom){
         console.log("3")
         return true;        
     }
-    if(player.offsetTop > bush4.offsetTop && player.offsetTop+player.offsetHeight < bush4.offsetTop+bush4.offsetHeight  && player.offsetLeft < bush1.offsetLeft  &&  player.offsetLeft+player.offsetWidth <  bush4.offsetLeft+bush4.offsetWidth){
+    if( getCoords(player).top >=  getCoords(bush4).top &&  getCoords(player).left >=  getCoords(bush4).left  &&  getCoords(player).right <=  getCoords(bush4).right  &&  getCoords(player).bottom <=  getCoords(bush4).bottom){
         console.log("4")
         return true;        
     }
-    if(player.offsetTop > bush5.offsetTop && player.offsetTop+player.offsetHeight < bush5.offsetTop+bush5.offsetHeight  && player.offsetLeft < bush5.offsetLeft  &&  player.offsetLeft+player.offsetWidth <  bush5.offsetLeft+bush5.offsetWidth){
+    if( getCoords(player).top >=  getCoords(bush5).top &&  getCoords(player).left >=  getCoords(bush5).left  &&  getCoords(player).right <=  getCoords(bush5).right  &&  getCoords(player).bottom <=  getCoords(bush5).bottom){
         console.log("5")
         return true;        
     }
+
+    console.log("0")
+    
     return false;
     
     
 }
-// bush1

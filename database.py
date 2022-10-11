@@ -6,12 +6,11 @@ import mysql.connector
 mybd = mysql.connector.connect(
     host='localhost',
     user='root',
-    password = 'usuario123',
-    auth_plugin='mysql_native_password'
+    password = 'pas123'
 )
 
 my_cursor = mybd.cursor();
-auth_plugin='mysql_native_password'
+
 #==================================================================================
 #crear base de datos
 #=================================================================================
