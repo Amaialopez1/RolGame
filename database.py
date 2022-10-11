@@ -6,15 +6,17 @@ import mysql.connector
 mybd = mysql.connector.connect(
     host='localhost',
     user='root',
-    passwd = 'pas123',
+    password = 'usuario123',
+    auth_plugin='mysql_native_password'
 )
 
 my_cursor = mybd.cursor();
-
+auth_plugin='mysql_native_password'
 #==================================================================================
 #crear base de datos
 #=================================================================================
 #my_cursor.execute('create database pokemons');
+
 
 # my_cursor.execute('show databases');
 # for db in my_cursor:
@@ -52,9 +54,9 @@ my_cursor.execute('use  pokemons');
 
 #my_cursor.execute("drop database pokemons");
 
-# my_cursor.execute('show tables')
-# for tb in my_cursor:
-#     print(tb[0]);
+my_cursor.execute('show tables')
+for tb in my_cursor:
+    print(tb[0]);
 # my_cursor.execute('select * from jugador');
 # for jugador in my_cursor:
 #     print(jugador)
