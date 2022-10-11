@@ -2,11 +2,19 @@
 {% block stylesheets %} <link rel="stylesheet" href="/static/style1.css"> {% endblock %}"
 {% block title %}Juego{% endblock %}
 {% block content %}
+
     <div class="caja2">
         <div class="top">
             <img class = "logo2" src="/static/img/logo.png">  
         </div>
         <div class ='main1'>
+            <div id = "buch1"></div>
+            <div id = "buch2"></div>
+            <div id = "buch3"></div>
+            <div id = "buch4"></div>
+            <div id = "buch5"></div>
+            <div id = "buch6"></div>
+            <img id="coach" src="/static/img/charmander_front.png">
             <div class ='rectangulo3'>
                 <p class="nivel">NIVEL:18</p>
                 <div class="propiedad">
@@ -24,3 +32,4 @@
     </div>
     
 {% endblock %}
+{% block JavaScript %} <script src="/static/js/movement.js"></script> {% endblock %}
