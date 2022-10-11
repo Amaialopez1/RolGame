@@ -1,5 +1,5 @@
    //Selecciono la clase player del documento
-const player = document.getElementById("coach")
+const player = document.getElementById("player")
 const bush1 =document.getElementById("buch1")
 const bush2 =document.getElementById("buch2")
 const bush3 =document.getElementById("buch3")

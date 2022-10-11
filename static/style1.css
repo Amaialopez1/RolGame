@@ -8,6 +8,31 @@ body {
   font-family: ModernWarfare;
   src: url("/RolGame/static/fonts/ModernWarfare.ttf");
 }
+#player{
+    width: 80px;
+    height: 100px;
+    background: url("/RolGame/static/img/mov_front.png");
+    background-size: 240px, 100px;
+    background-position: 0px 0;
+    z-index: 999;
+}
+
+#player.active{
+    animation: walking .6s linear infinite;
+}
+
+@keyframes walking{
+    0%, 32%{
+        background-position: -80px 0;
+    }
+    33%, 65%{
+        background-position: -160px 0px;
+    }
+    66%, 100%{
+        background-position: 0px 0px
+    }
+
+}
 
 #buch1{
     border-color: black;
