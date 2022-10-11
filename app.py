@@ -7,23 +7,30 @@ from Forms.RegisterForm import RegisterForm
 from database import my_cursor,mybd
 from flask_session import Session
 from Forms.Cambiar_nombre import  camb
+import sys
+
+if sys.version_info.major == 3 and sys.version_info.minor >= 10:
+    import collections
+    setattr(collections, "MutableMapping", collections.abc.MutableMapping)
 from flask_socketio import SocketIO, emit
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'adfadfadag';
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
-socketio = SocketIO(app)
+
 Session(app)
 
-@socketio.on('connect')
-def connect():
-    session['sid'] = request.sid
+socketio = SocketIO(app)
 
 
-# @socketio.on('enemigo')
-# def next_pos():
-#     #doing something
+
+@socketio.on('enemigo')
+def enemigo():
+    print("aperece enemigo")
+
+
+    
 
 @app.get('/login')
 def login_template():
@@ -136,6 +143,12 @@ def eligir():
     return render_template('eligir.html')
 
 
+
+@socketio.on('connect')
+def connect():
+    session['sid'] = request.sid 
+
+    
 if __name__ == '__main__':
 
-    app.run()
+    socketio.run(app)
