@@ -5,9 +5,9 @@ body {
 
 }
 
-
 .caja-1{
     margin-left: 20%;
+    font-family: revamped-font;
 }
 .caja2{
     display:flex;
