@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 {% block stylesheets %} <link rel="stylesheet" href="/static/style1.css"> {% endblock %}"
+
 {% block title %}Register{% endblock %}
 {% block content %}
-    <div class = "caja-1">
+ <div class = "caja-1">
         <img class = "logo" src= "/static/img/logo.png">
         <form  id="register" action="/register" method="post">
-            
+
             <div class = "form-field">
                 {{ form.nombre }}
                 {% for error in form.nombre.errors %}
@@ -14,13 +15,13 @@
             </div>
             <div class = "form-field">
                 {{ form.contrasena }}
-                {% for error in form.contrasena.errors %} 
+                {% for error in form.contrasena.errors %}
                 <span>{{ error }}</span>
                 {% endfor %}
             </div>
             <div class = "form-field">
                 {{ form.email }}
-                {% for error in form.email.errors %} 
+                {% for error in form.email.errors %}
                 <span>{{ error }}</span>
                 {% endfor %}
             </div>

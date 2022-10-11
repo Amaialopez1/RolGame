@@ -1,7 +1,7 @@
 from xml.dom import ValidationErr
 from wtforms import Form, StringField, PasswordField, SubmitField
-from wtforms.validators import DataRequired,Email, ValidationError
-from database import my_cursor,mybd
+from wtforms.validators import DataRequired, Email, ValidationError
+from database import my_cursor, mybd
 
 
 class RegisterForm(Form):

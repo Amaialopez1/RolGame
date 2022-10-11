@@ -1,6 +1,7 @@
 import time
-import numpy as np      # Instalar el modulo: pip install numpy
+import numpy as np  # Instalar el modulo: pip install numpy
 import sys
+
 
 # Imprime lentamente las caracteristicas del objetivo
 def delay_print(s):
@@ -20,7 +21,6 @@ class Pokemon:
         self.health = health
         self.bars = 20
 
-
     def fight(self, Pokemon2):
         # Permite que Pokemon pelee con Pokemon2
 
@@ -31,7 +31,7 @@ class Pokemon:
         print("Tipo/", self.types)
         print("Ataque/", self.attack)
         print("Defensa/", self.defense)
-        print("Level/", 3*(1+np.mean([self.attack, self.defense])))
+        print("Level/", 3 * (1 + np.mean([self.attack, self.defense])))
         print("\nVS")
         print(f"\n{Pokemon2.name}")
         print("Tipo/", Pokemon2.types)
@@ -47,7 +47,7 @@ class Pokemon:
             if self.types == k:
                 # Si los dos son el mismo tipo
                 if Pokemon2.types == k:
-                    string_1_attack = '\nEsto es efectivo...!'    # Muestra la cadena de texto del ataque
+                    string_1_attack = '\nEsto es efectivo...!'  # Muestra la cadena de texto del ataque
                     string_2_attack = '\nEsto no es efectivo...'
 
                 # Pokemon2 es fuerte a:
@@ -70,8 +70,6 @@ class Pokemon:
                     string_1_attack = '\nEsto es efectivo...!'
                     string_2_attack = '\nEsto no es efectivo...'
 
-
-
         # Continuar mientras los pokemon tengan ps
 
         # Imprime los ps de cada pokemon
@@ -79,7 +77,7 @@ class Pokemon:
             print(f"\n{self.name}\t\tPS\t{self.health}")
             print(f"{Pokemon2.name}\t\tPS\t{Pokemon2.health}\n")
             print(f"Go {self.name}!")
-            for i, x in enumerate(self.moves):    # Obtenemos el indice y el nombre del movimiento en pantalla
+            for i, x in enumerate(self.moves):  # Obtenemos el indice y el nombre del movimiento en pantalla
                 print(f"{i + 1}.", x)
             index = int(input('Seleccione un movimiento: '))
             delay_print(f"\n{self.name} usó {self.moves[index - 1]}!")
@@ -108,7 +106,7 @@ class Pokemon:
 
             print(f"Go {Pokemon2.name}!")
             for i, x in enumerate(Pokemon2.moves):
-                print(f"{i+1}.", x)
+                print(f"{i + 1}.", x)
             index = int(input('Seleccione un movimiento: '))
             delay_print(f"\n{Pokemon2.name} usó {Pokemon2.moves[index - 1]}!")
             time.sleep(1)
@@ -119,7 +117,7 @@ class Pokemon:
             self.health = ""
 
             # Defensa
-            for j in range(int(self.bars+.1 * self.defense)):
+            for j in range(int(self.bars + .1 * self.defense)):
                 self.health += "="
 
             time.sleep(1)
@@ -133,26 +131,27 @@ class Pokemon:
                 break
 
 
-
-
-
-
 if __name__ == '__main__':
+    # Crear pokemon
 
+    Charizard = Pokemon('Charizard', 'Fuego', ['Flamethrower', 'Fly', 'Blast Burn', 'Fire Punch'],
+                        {'Ataque': 12, 'Defensa': 8})
+    Blastoise = Pokemon('Blastoise', 'Agua', ['Water Gun', 'Bubblebeam', 'Hydro Pump', 'Surf'],
+                        {'Ataque': 10, 'Defensa': 10})
+    Venusaur = Pokemon('Venusaur', 'Planta', ['Vine Wip', 'Razor Leaf', 'Earthquake', 'Frenzy Plant'],
+                       {'Ataque': 8, 'Defensa': 12})
 
-    #Crear pokemon
-
-    Charizard = Pokemon('Charizard', 'Fuego', ['Flamethrower', 'Fly', 'Blast Burn', 'Fire Punch'], {'Ataque': 12, 'Defensa': 8})
-    Blastoise = Pokemon('Blastoise', 'Agua', ['Water Gun', 'Bubblebeam', 'Hydro Pump', 'Surf'], {'Ataque': 10, 'Defensa': 10})
-    Venusaur = Pokemon('Venusaur', 'Planta', ['Vine Wip', 'Razor Leaf', 'Earthquake', 'Frenzy Plant'], {'Ataque': 8, 'Defensa': 12})
-
-    Charmander = Pokemon('Charmander', 'Fuego', ['Ember', 'Scratch', 'Tackle', 'Fire Punch'], {'Ataque': 4, 'Defensa': 2})
+    Charmander = Pokemon('Charmander', 'Fuego', ['Ember', 'Scratch', 'Tackle', 'Fire Punch'],
+                         {'Ataque': 4, 'Defensa': 2})
     Squirtle = Pokemon('Squirtle', 'Agua', ['Bubblebeam', 'Tackle', 'Headbutt', 'Surf'], {'Ataque': 3, 'Defensa': 3})
-    Bulbasaur = Pokemon('Bulbasaur', 'Planta', ['Vine Wip', 'Razor Leaf', 'Tackle', 'Leech Seed'], {'Ataque': 2, 'Defensa':4})
+    Bulbasaur = Pokemon('Bulbasaur', 'Planta', ['Vine Wip', 'Razor Leaf', 'Tackle', 'Leech Seed'],
+                        {'Ataque': 2, 'Defensa': 4})
 
-    Charmeleon = Pokemon('Charmeleon', 'Fuego', ['Ember', 'Scratch', 'Flamethrower', 'Fire Punch'], {'Ataque': 6, 'Defensa': 5})
-    Wartortle = Pokemon('Wartortle', 'Agua', ['Bubblebeam', 'Water Gun', 'Headbutt', 'Surf'], {'Ataque': 5, 'Defensa': 5})
-    Ivysaur = Pokemon('Ivysaur\t', 'Planta', ['Vine Wip', 'Razor Leaf', 'Bullet Seed', 'Leech Seed'], {'Ataque': 4, 'Defensa': 6})
+    Charmeleon = Pokemon('Charmeleon', 'Fuego', ['Ember', 'Scratch', 'Flamethrower', 'Fire Punch'],
+                         {'Ataque': 6, 'Defensa': 5})
+    Wartortle = Pokemon('Wartortle', 'Agua', ['Bubblebeam', 'Water Gun', 'Headbutt', 'Surf'],
+                        {'Ataque': 5, 'Defensa': 5})
+    Ivysaur = Pokemon('Ivysaur\t', 'Planta', ['Vine Wip', 'Razor Leaf', 'Bullet Seed', 'Leech Seed'],
+                      {'Ataque': 4, 'Defensa': 6})
 
-
-    Charmander.fight(Squirtle) # Selecciona pokemon y pelea
+    Charmander.fight(Squirtle)  # Selecciona pokemon y pelea

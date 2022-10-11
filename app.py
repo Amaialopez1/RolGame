@@ -1,15 +1,15 @@
 from re import L
-from flask import Flask, redirect, render_template,request, url_for, session
+from flask import Flask, redirect, render_template, request, url_for, session
 from itsdangerous import NoneAlgorithm
 from numpy import void
 from Forms.LoginForm import LoginForm
 from Forms.RegisterForm import RegisterForm
-from database import my_cursor,mybd
+from database import my_cursor, mybd
 from flask_session import Session
-from Forms.Cambiar_nombre import  camb
+from Forms.Cambiar_nombre import camb
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'adfadfadag';
+app.config['SECRET_KEY'] = 'adfadfadag'
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
@@ -61,9 +61,9 @@ def register_template():
 def register():
     form = RegisterForm()
     if form.validate_form(request): 
-        sql1 = "insert into jugador(nombre_de_usario,contrasena,email) values (%s, %s, %s)";
+        sql1 = "insert into jugador(nombre_de_usario,contrasena,email) values (%s, %s, %s)"
         record1 = ( request.form.get('nombre'), request.form.get('contrasena'),  request.form.get('email'));
-        my_cursor.execute(sql1,record1 );
+        my_cursor.execute(sql1, record1 );
         mybd.commit();
         session["nombre"] = request.form.get("nombre")        
         my_cursor.execute("select * from jugador")
