@@ -9,15 +9,15 @@
         <h1>ELIGIR TIPO DE POKEMON</h1>
             <div class="scene">
                 <div class="tipo_de_pokemon">
-                     <img src="/static/img/bulbasaur_front.png">
+                     <img src="/static/img/bulbasaur1_front.png" width="110px" height="110px">
                      <p class="nombre_de_tipo_de_pokemon">BULBASAUR</p>
                </div>
               <div class="tipo_de_pokemon">
-                <img src="/static/img/charmander_front.png">
+                <img src="/static/img/charmander1_front.png" width="110px" height="110px" >
                     <p class="nombre_de_tipo_de_pokemon">CHARMANDER</p>
               </div>
              <div class="tipo_de_pokemon">
-                <img src="/static/img/squirtle_front.png">
+                <img src="/static/img/squirtle1_front.png" width="110px" height="110px">
                 <p class="nombre_de_tipo_de_pokemon">SQUIRTLE</p>
              </div>
             </div>
@@ -26,7 +26,7 @@
         <button class="right" onclick="plusDivs(1)">&#10095;</button>
         </div>
         <button class="eligir">
-        <a  class="p3"  href = {{ url_for('game') }} > ELIGIR</a>
+        <a class="p3" href = {{url_for('game')}}>Elegir</a>
         </button>
     </div>
 {% endblock %}

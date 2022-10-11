@@ -13,20 +13,20 @@ var slideIndex = 0;
    if (n == 0) { 
      document.querySelector(".left").style.visibility="hidden";
      cards[0].style.display = "grid";
-     cards[1].style.display =  "none";
-     cards[2].style.display =  "none";
+     cards[1].style.display = "none";
+     cards[2].style.display = "none";
     }
    else if (n == 2) { 
        document.querySelector(".right").style.visibility="hidden";
        cards[1].style.display = "grid";
-       cards[0].style.display =  "none";
-       cards[2].style.display =  "none";
+       cards[0].style.display = "none";
+       cards[2].style.display = "none";
    }
    else{
      document.querySelector(".left").style.visibility='visible '
      document.querySelector(".right").style.visibility="visible";
      cards[2].style.display = "grid";
-     cards[1].style.display =  "none";
-     cards[0].style.display =  "none";
+     cards[1].style.display = "none";
+     cards[0].style.display = "none";
    }
  }

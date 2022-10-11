@@ -4,6 +4,11 @@ body {
   
 
 }
+@font-face {
+  font-family: ModernWarfare;
+  src: url("/RolGame/static/fonts/ModernWarfare.ttf");
+}
+
 #buch1{
     border-color: black;
     position:absolute;
@@ -89,14 +94,14 @@ body {
 }
 
 .buttons{
-    margin-left: 40%;
+    margin-left: 38%;
 }
 .left{
-    background-color: #1661BA;
+    background-color: white;
 
 }
 .right{
-    background-color: #1661BA;
+    background-color: white;
 }
 .main1{
     position: absolute;
@@ -127,7 +132,9 @@ body {
 
 
 .nombre_de_tipo_de_pokemon{
-    color: #1661BA
+    color: #1661BA;
+    font-family:ModernWarfare;
+
 }
 
 
@@ -247,11 +254,15 @@ input[type=submit]{
 
 }
 .tipo_de_pokemon{
-    width: 190px;
-    background-color: #dade22;
+    width: 150px;
+    background-color: black;
+    background-size:200px, 200px;
+    border: solid white 3px;
+    margin-bottom: 5px;
     height: 150px;
     justify-content: center;
-    display: grid;
+    flex-direction:row;
+    display: flex;
 }
 
 
@@ -269,9 +280,12 @@ input[type=submit]{
 .eligir{
     background-color: #dade22;
     width: 20%;
-    margin-left: 38%;
+    margin-left: 34%;
     margin-top: 5%;
-
+    font-size: 24px;
+    font-family: Roboto;
+    border:none;
+    box-shadow: 0px 2px 3px 0px black;
 }
 
 .cambiar_nombre{
