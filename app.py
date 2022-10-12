@@ -5,11 +5,13 @@ from itsdangerous import NoneAlgorithm
 from numpy import void
 from Forms.LoginForm import LoginForm
 from Forms.RegisterForm import RegisterForm
-from database import my_cursor,mybd
+from database import my_cursor, mybd
 from flask_session import Session
+
 from Forms.Cambiar_nombre import  camb
 from Forms.Eligir1Form import Eligi1Form
 from Forms.EligirForm import EligirForm
+
 import sys
 
 if sys.version_info.major == 3 and sys.version_info.minor >= 10:
@@ -26,11 +28,10 @@ Session(app)
 
 socketio = SocketIO(app)
 
-
-
 @socketio.on('enemigo')
 def enemigo():
     print("aperece enemigo")
+
 
 @app.route('/eligir1',methods=['POST','GET'])
 def hello_world():
@@ -50,13 +51,13 @@ def hello_world():
     return render_template('eligir1.html', form=form)
     
 
+
 @app.get('/login')
 def login_template():
     if  session.get("nombre"):
         return render_template('inicial.html')   
     form = LoginForm()
     return render_template('login.html', form=form)
-
 
 @app.post('/login')
 def login():
@@ -95,8 +96,6 @@ def register_template():
     form = RegisterForm()
     return render_template('register.html', form=form)     
 
-
-
 @app.post('/register')
 def register():
     form = RegisterForm()
@@ -119,7 +118,6 @@ def register():
         
         return redirect(url_for('home')) 
 
-
 @app.get('/game')
 def game():
     if not session.get("nombre"):
@@ -127,8 +125,6 @@ def game():
         return render_template('index.html') 
     print('true - game');
     return render_template('juego.html')    
-
-    
 
 @app.get('/initial')
 def home():
@@ -167,14 +163,13 @@ def opc():
                print(jg)
     return render_template('inicial.html')         
 
-
-
 @app.get('/eligir')
 def eligir():
     if not session.get("nombre"):
         return render_template('index.html')  
     form = EligirForm();     
     return render_template('eligir.html')
+
 
 @app.post('/eligir')
 def eligir_post():
@@ -250,9 +245,12 @@ def eligir_post():
 #   my_cursor.execute("select ")
     return render_template('juego.html', form = form)
 
+
+
 @socketio.on('connect')
 def connect():
-    session['sid'] = request.sid 
+    session['sid'] = request.sid
+
 
     
 
@@ -260,3 +258,5 @@ def connect():
 if __name__ == '__main__':
     # socketio.run(app)
     app.run()
+
+
