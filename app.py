@@ -23,9 +23,7 @@ Session(app)
 
 socketio = SocketIO(app)
 
-@socketio.on('enemigo')
-def enemigo():
-    print("aperece enemigo")
+
 
 @app.get('/login')
 def login_template():

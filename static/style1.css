@@ -1,7 +1,8 @@
 body {
     background-color:#C53D3D;
     justify-content: center;
-  
+    display: flex;
+    flex-direction: row;
 
 }
 @font-face {
@@ -94,8 +95,9 @@ body {
     height: 20%;
     width: 20%;
 } */
-.caja-1{
+.caja-1 .form-field{
     margin-left: 20%;
+    font-size: 10px;
 }
 .caja2{
     display:flex;
@@ -162,7 +164,9 @@ body {
 
 }
 
+.form-field{
 
+}
 
 
 
