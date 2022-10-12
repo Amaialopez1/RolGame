@@ -2,17 +2,18 @@ class Pokemon{
      constructor(name, sprite, hp, moves){
           this.name = name;
           this.sprite = sprite;
+          this.hp = hp;
           this.fullhp = hp;
           this.moves = moves;
     }
 }
 let pkmList = [
-    ['Charmander', 'https://img.pokemondb.net/sprites/black-white/normal/charizard.png', 360, [['Flamethrower', 'fire', 95, 0.95],['Dragon Claw', 'dragon', 100, 0.95],['Air slash', 'fly', 75, 0.85],['Slash', 'normal', 70, ]
+    ['Charmander', '/static/img/charmanderB.png', 360, [['Flamethrower', 'fire', 95, 0.95],['Dragon Claw', 'dragon', 100, 0.95],['Air slash', 'fly', 75, 0.85],['Slash', 'normal', 70, ]
 ]],
 
-    ['Squirtle', '/https://img.pokemondb.net/sprites/black-white/normal/charizard.png', 362, [['Surf', 'water', 90, 0.95],['Crunch', 'normal', 80, 0.95],['Ice punch', 'ice', 75, 0.95],['Flash cannon', 'steel', 80, 0.95]
+    ['Squirtle', '/static/img/squirtleB.png', 362, [['Surf', 'water', 90, 0.95],['Crunch', 'normal', 80, 0.95],['Ice punch', 'ice', 75, 0.95],['Flash cannon', 'steel', 80, 0.95]
 ]],
-    ['Bulbasaur', 'https://img.pokemondb.net/sprites/black-white/normal/charizard.png', 364, [['Petal Blizzard', 'grass', 90, 0.95],['Sludge bomb', 'poison', 90, 0.95],['Earthquake', 'ground', 100, 0.95],['Body Slam', 'normal', 85, 0.95]
+    ['Bulbasaur', '/static/img/bulbasaurB.png', 364, [['Petal Blizzard', 'grass', 90, 0.95],['Sludge bomb', 'poison', 90, 0.95],['Earthquake', 'ground', 100, 0.95],['Body Slam', 'normal', 85, 0.95]
 ]]
 ];
 let typeMatch = {
@@ -22,7 +23,7 @@ let typeMatch = {
        }
 
 function spawn(bool){
-    let p = pkmList[Math.floor(Math.random()*pkmList.length)];
+    let p = pkmList[Math.floor(Math.random() * pkmList.length)];
     let pkm = new Pokemon(p[0], p[1], p[2], p[3]);
 
     if (bool){                                          //aparecen los nombres de los ataques del pokemon aliado
@@ -48,24 +49,24 @@ document.getElementById('hp2').innerHTML = '<p>HP: ' + pk2.hp + '/' + pk2.fullhp
 for(i=0; i<4; i++){
     let btn = document.getElementById('m' + i);
     let move = pk1.moves[i];
-    function addEvent1(btn, move, pk1, pk2){
+    function addEvent(btn, move, pk1, pk2){
         btn.addEventListener('click', function(e){
             attack(move, pk1, pk2, 'hp2', '');
-            setTimeout(attack, 2000, pk2.moves[Math.floor(Math.random()* 3) ], pk2, pk1, 'hp1', 'Enemigo ')  // enemigo ataca a los 2 segundos
+            setTimeout(attack, 2000, pk2.moves[Math.floor(Math.random() * 3)], pk2, pk1, 'hp1', 'Enemigo ')  // enemigo ataca a los 2 segundos
         });
     }
-    addEvent1(btn, move, pk1, pk2);
+    addEvent(btn, move, pk1, pk2);
 }
 function attack(move, attacker, receiver, hp, owner){
     document.getElementById('comment').innerHTML = '<p>' + owner + attacker.name + ' use ' + move[0] + ' !</p> ';
-    if(Math.random() < move[4]){
+    if(Math.random() < move[3]){
         let power = move[2] += Math.floor(Math.random()*10);
         let rtype = typeMatch[receiver.name];
         let mtype = move[1];
         let scale = 1;
 
         for(i=0; i < rtype.length; i++){
-            if(rtype[i].include(mtype)){
+            if(rtype[i].includes(mtype)){
                 switch(i){                  //Fallo o
                     case 0:
                         scale = 0;
@@ -103,7 +104,7 @@ function attack(move, attacker, receiver, hp, owner){
 }
 
 function winner(){
-    let f = (pk1.hp <=0) ? pk1 : (pk2.hp <= 0) ? pk2 : false;
+    let f = (pk1.hp <= 0) ? pk1 : (pk2.hp <= 0) ? pk2 : false;
     if (f != false){
         alert('Game over: ' + f.name + ' Derrotado');
         document.getElementById(hp).innerHTML = '<p>HP: 0/' + f.fullhp + '</p>'
