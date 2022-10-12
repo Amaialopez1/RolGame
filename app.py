@@ -123,8 +123,55 @@ def game():
     if not session.get("nombre"):
         print('false - game');    
         return render_template('index.html') 
-    print('true - game');
-    return render_template('juego.html')    
+
+    sql1="select id_coach from coach where id_jugador = %s; ";
+    record1 = (session.get("id"),)
+    my_cursor.execute(sql1,record1 )  
+    result1 = my_cursor.fetchone();
+    print(result1)
+    if result1 == None:
+        return redirect(url_for('eligir')) 
+  # id pokemon
+    sql2="select id_pokemon from coach where id_coach = %s; ";
+    record2= (result1[0],)
+    my_cursor.execute(sql2,record2 )  
+    result2 = my_cursor.fetchone();
+    session['id_pokemon'] = result2[0];
+# tipo
+    sql3="select tipo_de_pokemon from pokemon where id_pokemon = %s; ";
+    record3= (result2[0],)
+    my_cursor.execute(sql3,record3 )  
+    result3 = my_cursor.fetchone();
+    session['tipo'] = result3[0];
+# salud
+    sql3="select life from pokemon where id_pokemon = %s; ";
+    record3= (result2[0],)
+    my_cursor.execute(sql3,record3 )  
+    result3 = my_cursor.fetchone();
+    session['salud'] = result3[0];
+# nivel
+
+    sql3="select level from pokemon where id_pokemon = %s; ";
+    record3= (result2[0],)
+    my_cursor.execute(sql3,record3 )  
+    result3 = my_cursor.fetchone();
+    session['nivel'] = result3[0];
+# experencia
+    sql3="select experience from coach where id_pokemon = %s; ";
+    record3= (result2[0],)
+    my_cursor.execute(sql3,record3 )  
+    result3 = my_cursor.fetchone();
+    session['experencia'] = result3[0];
+
+    #print(session.get('tipo'),'+' ,session.get('salud'), '+', session.get('id'))
+
+    tipo = session.get('tipo');
+    salud = session.get('salud')
+    nivel = session.get('nivel')
+    experencia = session.get('experencia')
+
+    data = { "tipo": tipo , "salud": salud}
+    return render_template('juego.html', nivel = nivel, experencia = experencia, data = data)    
 
 @app.get('/initial')
 def home():
@@ -173,7 +220,7 @@ def eligir():
 
 @app.post('/eligir')
 def eligir_post():
-    form = EligirForm();   
+    print('start')  
    
     sql1 =" insert into pokemon(tipo_de_pokemon)  values (%s)";
     record1 = (request.form['eligir'],)
@@ -237,13 +284,9 @@ def eligir_post():
         for jg in my_cursor:
              print(jg)
 
-        print("si")    
-    
+    print("result")         
 
-    
-
-#   my_cursor.execute("select ")
-    return render_template('juego.html', form = form)
+    return redirect(url_for('game'))
 
 
 
@@ -256,7 +299,7 @@ def connect():
 
     
 if __name__ == '__main__':
-    # socketio.run(app)
+    #socketio.run(app)
     app.run()
 
 

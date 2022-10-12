@@ -61,7 +61,10 @@ body {
     height: 15%;
     width: 20%;
 }
+.imgpok{
+    width:100%;
 
+}
 #example{
     display: flow-root;
     margin-left: 30%;

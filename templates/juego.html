@@ -14,16 +14,18 @@
             <div id = "buch4"></div>
             <div id = "buch5"></div>
             <div id = "buch6"></div>
-            <div class="player"></div>
+            <div class="player">
+                <img class="imgpok" src="/static/img/bulbasaur1_front.png">
+            </div>
             <div class ='rectangulo3'>
-                <p class="nivel">NIVEL:18</p>
+                <p class="nivel">NIVEL:{{ nivel }}</p>
                 <div class="propiedad">
                     <p class="propiedad_nombre">Experencia</p>
-                    <div class="rectangulo_propiedad"></div>
+                    <div class="rectangulo_propiedad">{{ experencia }}</div>
                 </div>
                 <div class="propiedad">
                     <p class="propiedad_nombre">Salud</p>
-                    <div class="rectangulo_propiedad"></div>
+                    <div class='rectangulo_propiedad' id ='propiedad-salud' ></div>
                 </div>
             </div>
                 <img class="img1" src="/static/img/game.jpg">
@@ -34,4 +36,25 @@
 {% endblock %}
 {% block JavaScript %}
 
-<script src="/static/js/movement.js"></script> {% endblock %}
+<script>
+    salud = document.getElementById('propiedad-salud')
+    player_img = document.querySelector(".imgpok")
+    saludi = '{{ data.salud }}'
+    tipo = '{{ data.tipo }}'
+    console.log("tipo - ", tipo)
+    console.log("tipo" , tipo)
+    salud.style.width= '100%';
+    if(tipo == "Fire"){
+    player_img.src = "/static/img/charmander_front.png"
+    }
+    else if (tipo == "Water"){
+    player_img.src = "/static/img/squirtle_front.png"
+    }
+    else{
+    player_img.src == "/static/img/bulbasaur_front.png"
+    }
+</script>
+
+
+<script src="/static/js/movement.js"></script> 
+{% endblock %}
