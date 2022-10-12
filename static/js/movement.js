@@ -49,9 +49,9 @@ window.addEventListener('keydown', function(e){     //Añade el evento, 'keydown
 
     // const socket = io();
     if (in_bush(player)){
-        //socket.emit('enemigo')
+        socket.emit('enemigo')
         var  xml4 = new XMLHttpRequest();
-        xml4.open('get',"/game", true);
+        xml4.open('POST',"/game", true);
         xml4.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 
     // xml4.onload = function(){

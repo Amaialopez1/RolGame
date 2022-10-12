@@ -31,6 +31,7 @@ socketio = SocketIO(app)
 @socketio.on('enemigo')
 def enemigo():
     print("aperece enemigo")
+    return render_template('inicial.html');
 
 
 @app.route('/eligir1',methods=['POST','GET'])
@@ -179,8 +180,11 @@ def game():
 
 @app.post('/game')
 def game_post():
-    print("GET GAME")
-    print(request.args.get("lol"));
+    print("POST GAME")
+    print(request.args.get("is"));
+    print(request.args.get('step'));
+    print(request.args)
+    return void;
 
 
 @app.get('/initial')
@@ -309,7 +313,7 @@ def connect():
 
     
 if __name__ == '__main__':
-    #socketio.run(app)
-    app.run()
+    socketio.run(app)
+    #app.run()
 
 
