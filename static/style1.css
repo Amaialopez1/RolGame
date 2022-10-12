@@ -31,6 +31,56 @@ body {
     height: 15%;
     width: 20%;
 }
+
+#example{
+    display: flow-root;
+    margin-left: 30%;
+}
+
+label{
+    font-size: 150%;
+    margin-top: 3.5%;
+    margin-left: 5%;
+    color: #dade22;
+}
+
+li{
+    display:flex;
+}
+
+.eligirx{
+    margin-top: 40%;
+    width: 20%;
+}
+
+.opcion{
+    display: flex;
+}
+
+.descriotion-opcion{
+    display: grid;
+}
+#subopc{
+    width:130%
+}
+.opcimg{
+    width: 200%;
+}
+
+.labopc{
+    margin-left: 45%;
+}
+
+#example-0{
+    width: 2%;
+    font-size: 10%;
+}
+
+#example-1{
+    width: 2%;
+    font-size: 10%;
+}
+
 #buch4{
     border-color: yellow;
     position:absolute;

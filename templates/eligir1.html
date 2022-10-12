@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block stylesheets %} <link rel="stylesheet" href="/static/style1.css">{% endblock %}
+
+{% block title %}Eligir{% endblock %}   
+{% block content %}
+<form method="POST">
+    <p>Continuar?</p>
+    {{ form.example }}
+    <input type="submit">
+</form>
+{% endblock %}

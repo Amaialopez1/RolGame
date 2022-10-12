@@ -24,6 +24,10 @@
                 <span>{{ error }}</span>
                 {% endfor %}
             </div>
+            {% for error in form.errors.items() %} 
+                {{ error }}
+            {% endfor %}
+            
             <div>
                 {{ form.submit() }}
             </div>
