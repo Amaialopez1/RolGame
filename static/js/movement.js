@@ -119,5 +119,5 @@ function in_bush(player){
     console.log("0")
     
     return false;
-
 }
+

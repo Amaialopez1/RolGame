@@ -28,9 +28,7 @@ Session(app)
 
 socketio = SocketIO(app)
 
-@socketio.on('enemigo')
-def enemigo():
-    print("aperece enemigo")
+
 
 
 @app.route('/eligir1',methods=['POST','GET'])
