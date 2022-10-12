@@ -37,7 +37,7 @@ body {
 #buch1{
     border-color: black;
     position:absolute;
-    border-style: solid;
+   /* border-style: solid; */
     top:70%;
     left:16%;
     height: 27%;
@@ -46,7 +46,7 @@ body {
 #buch2{
     border-color: black;
     position:absolute;
-    border-style: solid;
+ /*   border-style: solid; */
     top:37%;
     left: 31%;
     height: 13%;
@@ -55,7 +55,7 @@ body {
 #buch3{
     border-color: black;
     position:absolute;
-    border-style: solid;
+  /*  border-style: solid; */
     top:20%;
     left:52%;
     height: 15%;
@@ -64,7 +64,7 @@ body {
 #buch4{
     border-color: yellow;
     position:absolute;
-    border-style: solid;
+  /*  border-style: solid; */
     top:55%;
     left:50%;
     height: 27%;
@@ -73,7 +73,7 @@ body {
 #buch5{
     border-color: black;
     position:absolute;
-    border-style: solid;
+   /* border-style: solid; */
     top:2%;
     left:20%;
     height: 20%;
