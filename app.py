@@ -31,7 +31,8 @@ socketio = SocketIO(app)
 @socketio.on('enemigo')
 def enemigo():
     print("aperece enemigo")
-    return render_template('inicial.html');
+    return redirect(url_for('combate'))
+
 
 
 @app.route('/eligir1',methods=['POST','GET'])
@@ -176,22 +177,45 @@ def game():
     print(request.args.get("is"));
     print(request.args.get('step'));
     print(request.args)
-    return render_template('juego.html', nivel = nivel, experencia = experencia, data = data)    
+    # print(request.get('step'));
+    data = { "tipo": tipo , "salud": salud, "experencia":experencia,"nivel" :nivel }
+    return render_template('juego.html', data = data, nivel = nivel)    
 
 @app.post('/game')
 def game_post():
     print("POST GAME")
-    print(request.args.get("is"));
+    print(request.args.get("lol"));
     print(request.args.get('step'));
-    print(request.args)
-    return void;
+    # print(request.get('step'));
+    return redirect(url_for("combate"));
 
+@app.get('/combate')
+def combate():
+    print("aqui")
+    tipo = session.get('tipo');
+    salud = session.get('salud')
+    nivel = session.get('nivel')
+    experencia = session.get('nivel')
+    data = { "tipo": tipo , "salud": salud, "experencia":experencia,"nivel" :nivel }
+
+    return render_template('pokemonCombat.html', data=data)
 
 @app.get('/initial')
 def home():
     if not session.get("nombre"):
-        return render_template('index.html')   
+        return render_template('index.html') 
+
+    print("GET -INITIAL")      
+    print(request.get_json("step"))
+    print(request.get("step"))
     return render_template('inicial.html')      
+
+@app.post('/initial')
+def home_post():
+    print("POST -INITIAL")      
+    print(request.get_json("step"))
+    print(request.get("step"))
+    return render_template('inicial.html')       
 
 @app.get('/logout')
 def logout():

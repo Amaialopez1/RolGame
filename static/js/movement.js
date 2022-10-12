@@ -45,20 +45,15 @@ window.addEventListener('keydown', function(e){     //Añade el evento, 'keydown
         player.style.backgroundImage = 'url("/static/img/mov_right.png")'
     }
     
-    // xml4.send("string")
+   
 
     // const socket = io();
     if (in_bush(player)){
         socket.emit('enemigo')
-        var  xml4 = new XMLHttpRequest();
-        xml4.open('POST',"/game", true);
-        xml4.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-
-    // xml4.onload = function(){
-    //     var dataReply = JSON.parse(this.responseText);
-    // }
-         senddata = JSON.stringify({'step':'lololololo','is':'lol'})  
-         xml4.send(senddata)
+        const xml=new XMLHttpRequest();
+        xml.open("POST", "/game", true);
+        data = JSON.stringify({"lol":"pop", "step":"correct"})
+        xml.send(data)
         console.log("inside")}
     else{console.log("outside")}
     player.classList.add('active')                  //Activa el keyframe de la clase player para la animación
@@ -119,5 +114,5 @@ function in_bush(player){
     console.log("0")
     
     return false;
-
 }
+

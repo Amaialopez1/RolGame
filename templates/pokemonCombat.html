@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block stylesheets %} <link rel="stylesheet" href="/static/js/combat.css"> {% endblock %}"
+{% block title %}Combate{% endblock %}
+{% block content %}
+    <table>
+        <tr>
+            <td id="hp1"></td>
+            <td id="hp2"></td>
+        </tr>
+        <tr>
+            <td id="pk1"></td>
+            <td id="pk2"></td>
+        </tr>
+        <tr>
+            <td colspan="2" id="comment"></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" class="btn" id="m0">
+                <input type="button" class="btn" id="m1">
+                <input type="button" class="btn" id="m2">
+                <input type="button" class="btn" id="m3">
+            </td>
+        </tr>
+    </table>
+</body>
+{% endblock %}
+{% block JavaScript %}
+<script>
+    var psalud = '{{ data.salud }}'
+var pnivel = '{{ data.nivel }}'
+var ptipo = '{{ data.tipo }}'
+var pexperencia = '{{ data.experencia }}'
+console.log(pnivel , ptipo)
+</script>
+<script src="/static/js/combat.js"></script>
+{% endblock  %}
