@@ -46,8 +46,6 @@ def hello_world():
         print('=======')
         if data['example'] ==  'No':
             print("no");
-        else:
-            print("FUCK")
 
     return render_template('eligir1.html', form=form)
     
@@ -227,13 +225,13 @@ def eligir_post():
         id_pokemon_for_delete= result5[0]
         print(result5[0]);
         my_cursor.reset();
-        print("tut")
+        #print("tut")
 
         sql6 = "update coach set id_pokemon = %s where id_jugador = %s";
         record6 = ( id_pokemon,session.get("id"),  )
         my_cursor.execute(sql6,record6)
         mybd.commit()
-        print("tut1")
+        #print("tut1")
 
         sql7 = "delete from pokemon where id_pokemon = %s";
         record7 = (id_pokemon_for_delete, )
@@ -250,11 +248,13 @@ def eligir_post():
     
 
 #   my_cursor.execute("select ")
-    return render_template('eligir.html', form = form)
+    return render_template('juego.html', form = form)
 
 @socketio.on('connect')
 def connect():
     session['sid'] = request.sid 
+
+    
 
     
 if __name__ == '__main__':

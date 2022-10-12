@@ -6,7 +6,7 @@ import mysql.connector
 mybd = mysql.connector.connect(
     host='localhost',
     user='root',
-    password = 'pas123'
+    password = 'usuario123'
 )
 
 my_cursor = mybd.cursor(buffered=True);
