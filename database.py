@@ -67,10 +67,10 @@ for column in my_cursor:
 # mybd.commit();
 
 
-# my_cursor.execute("select * from jugador where id = 1")
-# result = my_cursor.fetchall()
-# for row in result:
-#     print(row)
+my_cursor.execute("select * from jugador ")
+result = my_cursor.fetchall()
+for row in result:
+    print(row)
 
 # my_cursor.execute("select * from jugador where id = 3")
 # result = my_cursor.fetchall()

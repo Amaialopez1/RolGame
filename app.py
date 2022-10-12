@@ -171,7 +171,17 @@ def game():
     experencia = session.get('experencia')
 
     data = { "tipo": tipo , "salud": salud}
+    print("GET GAME")
+    print(request.args.get("is"));
+    print(request.args.get('step'));
+    print(request.args)
     return render_template('juego.html', nivel = nivel, experencia = experencia, data = data)    
+
+@app.post('/game')
+def game_post():
+    print("GET GAME")
+    print(request.args.get("lol"));
+
 
 @app.get('/initial')
 def home():

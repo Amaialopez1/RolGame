@@ -5,7 +5,9 @@
     <div class = "caja-1">
         <img class = "logo" src= "/static/img/logo.png">
         <form  id="register" action="/register" method="post">
-            
+            {% for field, errors in form.errors.items() %}
+            {{ ', '.join(errors) }}
+            {% endfor %}
             <div class = "form-field">
                 {{ form.nombre }}
                 {% for error in form.nombre.errors %}
