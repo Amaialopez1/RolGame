@@ -126,6 +126,10 @@ def game():
         print('false - game');    
         return render_template('index.html') 
 
+    if(session.get("game") == "over"):
+        session["game"] = "start"
+        print("nuevo juego")
+        return redirect(url_for('eligir')) 
     sql1="select id_coach from coach where id_jugador = %s; ";
     record1 = (session.get("id"),)
     my_cursor.execute(sql1,record1 )  
@@ -181,40 +185,33 @@ def game():
     data = { "tipo": tipo , "salud": salud, "experencia":experencia,"nivel" :nivel }
     return render_template('pokemonCombat.html', data = data, nivel = nivel)    
 
-# @app.post('/game')
-# def game_post():
-#     print("POST GAME")
-#     print(request.args.get("lol"));
-#     print(request.args.get('step'));
-#     # print(request.get('step'));
-#     return redirect(url_for("combate"));
 
-@app.get('/combate')
-def combate():
-    print("aqui")
-    tipo = session.get('tipo');
-    salud = session.get('salud')
-    nivel = session.get('nivel')
-    experencia = session.get('nivel')
-    data = { "tipo": tipo , "salud": salud, "experencia":experencia,"nivel" :nivel }
-
-    return render_template('pokemonCombat.html', data=data)
 
 @app.get('/initial')
 def home():
     if not session.get("nombre"):
         return render_template('index.html') 
 
-    print("GET -INITIAL")      
-    print(request.get_json("step"))
-    print(request.get("step"))
-    return render_template('inicial.html')      
+    #print("GET -INITIAL")   
+    
+   # print(request.get_json("step"))
+    print(request.args.get("game"))
+   # session["game"] = "over";   
+    return render_template('inicial.html')     
+
+@app.get('/home')
+def costul():
+    print("costul - get")
+    print(request.args.get("game"))
+    session["game"] = "over";
+    return render_template('inicial.html')  
+
 
 @app.post('/initial')
 def home_post():
     print("POST -INITIAL")      
-    print(request.get_json("step"))
-    print(request.get("step"))
+    print(request.args.get("game"))
+    session["game"] = "over";
     return render_template('inicial.html')       
 
 @app.get('/logout')

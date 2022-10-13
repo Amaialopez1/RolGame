@@ -111,7 +111,15 @@ function attack(move, attacker, receiver, hp, owner){
 function winner(){
     let f = (pk1.hp <= 0) ? pk1 : (pk2.hp <= 0) ? pk2 : false;
     if (f != false){
-        alert('Game over: ' + f.name + ' Derrotado');
+        var b = document.getElementById("volver3")
+        b.click();
+        console.log("game over")
+        //alert('Game over: ' + f.name + ' Derrotado');
+
+        var xml1=new XMLHttpRequest();
+        xml1.open("POST", "/home", true)
+        senddata = JSON.stringify({"game":"over"})
+        xml1.send(data)
         document.getElementById(hp).innerHTML = '<p>HP: 0/' + f.fullhp + '</p>'
         setTimeout(function(){
             location.reload
