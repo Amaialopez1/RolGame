@@ -1,6 +1,7 @@
 body{
     display:flex;
     justify-content: center;
+    background-color:#C53D3D ;
 }
 table{
   border: solid 2px black;
@@ -8,6 +9,10 @@ table{
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+audio{
+    display:none;
 }
  th, td{
         padding: 15px;
@@ -17,8 +22,29 @@ table{
 
         width: 100px;
         height:50px;
+        background-color:#dade22 ;
     }
 p{
         font-family: Ubuntu;
         font-size 15px;
     }
+
+    .logout{
+        border-width: 2px;
+        border-color: white;
+        border-style: solid;
+        text-align: center;
+        height: 35%;
+        width: 80px;
+        display: flex;
+        float: right;
+    
+    }    
+
+    .p2{
+        color:white;
+        text-decoration: none;
+        height: 15%;
+        margin:5%;
+        /* margin-right:5%; */
+    }    

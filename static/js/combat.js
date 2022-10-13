@@ -9,7 +9,7 @@ class Pokemon{
 }
 
 
-
+console.log(psalud, pnivel, ptipo)
 
 
 let pkmList = [

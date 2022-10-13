@@ -179,15 +179,15 @@ def game():
     print(request.args)
     # print(request.get('step'));
     data = { "tipo": tipo , "salud": salud, "experencia":experencia,"nivel" :nivel }
-    return render_template('juego.html', data = data, nivel = nivel)    
+    return render_template('pokemonCombat.html', data = data, nivel = nivel)    
 
-@app.post('/game')
-def game_post():
-    print("POST GAME")
-    print(request.args.get("lol"));
-    print(request.args.get('step'));
-    # print(request.get('step'));
-    return redirect(url_for("combate"));
+# @app.post('/game')
+# def game_post():
+#     print("POST GAME")
+#     print(request.args.get("lol"));
+#     print(request.args.get('step'));
+#     # print(request.get('step'));
+#     return redirect(url_for("combate"));
 
 @app.get('/combate')
 def combate():
@@ -251,8 +251,7 @@ def opc():
 @app.get('/eligir')
 def eligir():
     if not session.get("nombre"):
-        return render_template('index.html')  
-    form = EligirForm();     
+        return render_template('index.html')     
     return render_template('eligir.html')
 
 
@@ -337,7 +336,7 @@ def connect():
 
     
 if __name__ == '__main__':
-    socketio.run(app)
-    #app.run()
+    #socketio.run(app)
+    app.run()
 
 
