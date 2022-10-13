@@ -12,6 +12,9 @@ class Pokemon{
 console.log(psalud, pnivel, ptipo)
 
 
+console.log("ptipo - ", ptipo)
+
+
 let pkmList = [
     ['Charmander', '/static/img/charmanderB.png', 360, [['Flamethrower', 'fire', 95, 0.95],['Dragon Claw', 'dragon', 100, 0.95],['Air slash', 'fly', 75, 0.85],['Slash', 'normal', 70, ]
 ]],
@@ -40,6 +43,19 @@ function spawn(bool){
 }
 
 let pk1 = spawn(true);
+
+if (ptipo == "Fire"){
+    pk1.name = "Charmander" 
+    pk1.sprite = '/static/img/charmanderB.png'
+}
+    
+else if (ptipo == "Grass"){
+    pk1.name = "Bulbasaur" 
+    pk1.sprite = '/static/img/bulbasaurB.png'
+}
+
+else {pk1.name = "Squirtle"
+pk1.sprite = '/static/img/squirtleB.png'}
 s1 = document.createElement('img');
 s1.src = pk1.sprite;
 document.getElementById('pk1').appendChild(s1);
